@@ -23,5 +23,5 @@ Metadata DELETE Request:
 DELETE http://localhost:8080/services/metadata/{environment-id}/{property-name}
 
 Sample:
-curl -v http://localhost:8080/services/metadata/dev/xyz/
+curl -v -X DELETE http://localhost:8080/services/metadata/dev/xyz/
 
