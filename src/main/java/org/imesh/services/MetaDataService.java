@@ -37,6 +37,22 @@ public class MetaDataService {
     }
 
     @GET
+    @Path("/")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get() {
+        return Response.status(200).entity(Database.getInstance().getMetaData()).build();
+    }
+
+    @GET
+    @Path("/{environment-id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get(@PathParam("environment-id") String environmentId) {
+        return Response.status(200).entity(Database.getInstance().getMetaData().get(environmentId)).build();
+    }
+
+    @GET
     @Path("/{environment-id}/{property-name}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
